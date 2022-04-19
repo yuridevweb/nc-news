@@ -1,17 +1,19 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { getTopics } from '../utils/api'
+
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
-import { getTopics } from '../utils/api'
 
 const Nav = () => {
   const [topics, setTopics] = useState([])
+
   useEffect(() => {
     getTopics().then((topicsFromApi) => {
       setTopics(topicsFromApi)
     })
   }, [])
-  console.log(topics)
+
   return (
     /* <Navbar bg='light' variant='light'>
         <Container>
@@ -30,8 +32,7 @@ const Nav = () => {
         <Link to='/'>Home</Link>
         <Link to='/articles'>All Articles</Link>
         {topics.map((topic) => {
-          //const link = '/articles/' + {topic.slug}
-          return <Link to='/articles/coding'>{topic.slug}</Link>
+          return <Link to={`/articles/${topic.slug}`}>{topic.slug}</Link>
         })}
       </Container>
     </Navbar>
