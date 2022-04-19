@@ -3,16 +3,17 @@ import { getArticles } from '../utils/api'
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 import { Row } from 'react-bootstrap'
+import { useParams } from 'react-router-dom'
 
 const Articles = () => {
   const [articles, setArticles] = useState([])
+  const { topic } = useParams()
   useEffect(() => {
-    getArticles().then((articles) => {
-      setArticles(articles)
+    getArticles(topic).then((articlesFromApi) => {
+      setArticles(articlesFromApi)
     })
-  }, [])
+  }, [topic])
 
-  console.log(articles)
   return (
     <main>
       <h2>All articles</h2>
