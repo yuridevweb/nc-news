@@ -28,25 +28,24 @@ const Articles = () => {
         <ul>
           {articles.map((article) => {
             return (
-              <li className='articles-list' key={article.article_id}>
-                <Card className='text-center'>
-                  <Card.Body>
-                    <Card.Title>{article.title}</Card.Title>
-                    <Link to={`/articles/${article.article_id}`}>
-                      {article.article_id}
-                    </Link>
-                  </Card.Body>
-                  <Card.Footer className='text-muted'>
-                    <Row>
-                      <Col sm={6}>
-                        Posted on: {article.created_at.slice(0, 10)}
-                      </Col>
-                      <Col sm={3}>Comments: {article.comment_count}</Col>
-                      <Col sm={3}>Votes: {article.votes}</Col>
-                    </Row>
-                  </Card.Footer>
-                </Card>
-              </li>
+              <Link to={`/articles/${article.article_id}`}>
+                <li className='articles-list' key={article.article_id}>
+                  <Card className='text-center'>
+                    <Card.Body>
+                      <Card.Title>{article.title}</Card.Title>
+                    </Card.Body>
+                    <Card.Footer className='text-muted'>
+                      <Row>
+                        <Col sm={6}>
+                          Posted on: {article.created_at.slice(0, 10)}
+                        </Col>
+                        <Col sm={3}>Comments: {article.comment_count}</Col>
+                        <Col sm={3}>Votes: {article.votes}</Col>
+                      </Row>
+                    </Card.Footer>
+                  </Card>
+                </li>
+              </Link>
             )
           })}
         </ul>
