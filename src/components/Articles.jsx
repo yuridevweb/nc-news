@@ -21,15 +21,16 @@ const Articles = () => {
 
   return (
     <main>
-      <h2>All articles</h2>
+      {!topic && <h2>All topics</h2>}
+      <h2 className='capitalize'>{topic}</h2>
       {isLoading ? (
         <Spinner animation='border' />
       ) : (
         <ul>
           {articles.map((article) => {
             return (
-              <Link to={`/articles/${article.article_id}`}>
-                <li className='articles-list' key={article.article_id}>
+              <li className='articles-list' key={article.article_id}>
+                <Link to={`/articles/${article.article_id}`}>
                   <Card className='text-center'>
                     <Card.Body>
                       <Card.Title>{article.title}</Card.Title>
@@ -44,8 +45,8 @@ const Articles = () => {
                       </Row>
                     </Card.Footer>
                   </Card>
-                </li>
-              </Link>
+                </Link>
+              </li>
             )
           })}
         </ul>
