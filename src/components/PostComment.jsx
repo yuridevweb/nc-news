@@ -7,7 +7,7 @@ const PostComment = ({ article_id, setComments }) => {
     e.preventDefault()
     postNewComment(article_id, newComment).then((postedComment) => {
       setComments((currComments) => {
-        const newComments = [postedComment, ...currComments]
+        const newComments = [...currComments, postedComment]
         return newComments
       })
       setNewComment('')
@@ -15,12 +15,12 @@ const PostComment = ({ article_id, setComments }) => {
   }
   return (
     <form onSubmit={handleSumbit}>
-      <label for='comment-form'>Add a comment... </label>
+      <label htmlFor='comment-form'>Add a comment... </label>
       <input
         className='post-comment-form'
-        id='cheese'
+        id='comment-form'
         type='text'
-        minlength='3'
+        minLength='3'
         value={newComment}
         onChange={(e) => setNewComment(e.target.value)}
         required={true}

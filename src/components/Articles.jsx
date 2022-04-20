@@ -21,7 +21,8 @@ const Articles = () => {
 
   return (
     <main>
-      <h2>All articles</h2>
+      {!topic && <h2>All topics</h2>}
+      <h2 className='capitalize'>{topic}</h2>
       {isLoading ? (
         <Spinner animation='border' />
       ) : (
