@@ -32,7 +32,11 @@ const Nav = () => {
         <Link to='/'>Home</Link>
         <Link to='/articles'>All Articles</Link>
         {topics.map((topic) => {
-          return <Link to={`/articles/${topic.slug}`}>{topic.slug}</Link>
+          return (
+            <Link key={topic.slug} to={`/topics/${topic.slug}`}>
+              {topic.slug}
+            </Link>
+          )
         })}
       </Container>
     </Navbar>

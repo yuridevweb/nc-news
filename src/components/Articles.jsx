@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import { getArticles } from '../utils/api'
+import { Row } from 'react-bootstrap'
+import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 import Spinner from 'react-bootstrap/Spinner'
-import { Row } from 'react-bootstrap'
-import { useParams } from 'react-router-dom'
 
 const Articles = () => {
   const [articles, setArticles] = useState([])
@@ -27,10 +28,13 @@ const Articles = () => {
         <ul>
           {articles.map((article) => {
             return (
-              <li class='articles-list' key={article.article_id}>
+              <li className='articles-list' key={article.article_id}>
                 <Card className='text-center'>
                   <Card.Body>
                     <Card.Title>{article.title}</Card.Title>
+                    <Link to={`/articles/${article.article_id}`}>
+                      {article.article_id}
+                    </Link>
                   </Card.Body>
                   <Card.Footer className='text-muted'>
                     <Row>

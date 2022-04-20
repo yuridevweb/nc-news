@@ -12,7 +12,6 @@ export const getArticles = (topic) => {
       },
     })
     .then(({ data }) => {
-      console.log(data, '<<<<<')
       return data.articles
     })
 }
@@ -20,5 +19,11 @@ export const getArticles = (topic) => {
 export const getTopics = () => {
   return newsApi.get('/topics').then(({ data }) => {
     return data.topics
+  })
+}
+
+export const getArticlesById = (article_id) => {
+  return newsApi.get(`/articles/${article_id}`).then(({ data }) => {
+    return data.article
   })
 }
