@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getArticlesById } from '../utils/api'
 import Votes from './Votes'
+import Comments from './Comments'
 
 import { Spinner } from 'react-bootstrap'
 import Card from 'react-bootstrap/Card'
@@ -45,6 +46,7 @@ const SingleArticle = () => {
           </Card.Footer>
         </Card.Body>
       </Card>
+      <Comments article_id={singleArticle.article_id}></Comments>
     </main>
   )
 }
