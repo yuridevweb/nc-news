@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { getCommentsByArticle } from '../utils/api'
+import PostComment from './PostComment'
 
 import Card from 'react-bootstrap/Card'
 
@@ -10,10 +11,14 @@ const Comments = ({ article_id }) => {
       setComments(commentsFromApi)
     })
   }, [])
-  console.log(comments, '<<<')
+
   return (
     <>
       <h2>Comments</h2>
+      <PostComment
+        article_id={article_id}
+        setComments={setComments}
+      ></PostComment>
       <ul>
         {comments.map((comment) => {
           return (

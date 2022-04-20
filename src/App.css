@@ -13,3 +13,8 @@ ul {
 .articles-list {
   padding: 20px;
 }
+
+.post-comment-form {
+  width: 100%;
+  height: 100px;
+}

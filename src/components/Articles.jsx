@@ -28,8 +28,8 @@ const Articles = () => {
         <ul>
           {articles.map((article) => {
             return (
-              <Link to={`/articles/${article.article_id}`}>
-                <li className='articles-list' key={article.article_id}>
+              <li className='articles-list' key={article.article_id}>
+                <Link to={`/articles/${article.article_id}`}>
                   <Card className='text-center'>
                     <Card.Body>
                       <Card.Title>{article.title}</Card.Title>
@@ -44,8 +44,8 @@ const Articles = () => {
                       </Row>
                     </Card.Footer>
                   </Card>
-                </li>
-              </Link>
+                </Link>
+              </li>
             )
           })}
         </ul>
