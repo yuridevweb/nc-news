@@ -27,3 +27,19 @@ export const getArticlesById = (article_id) => {
     return data.article
   })
 }
+
+export const incremenetArticleVotes = (article_id) => {
+  return newsApi
+    .patch(`/articles/${article_id}`, { inc_votes: 1 })
+    .then(({ data }) => {
+      return data.article
+    })
+}
+
+export const decremenetArticleVotes = (article_id) => {
+  return newsApi
+    .patch(`/articles/${article_id}`, { inc_votes: -1 })
+    .then(({ data }) => {
+      return data.article
+    })
+}

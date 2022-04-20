@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getArticlesById } from '../utils/api'
+import Votes from './Votes'
 
 import { Spinner } from 'react-bootstrap'
 import Card from 'react-bootstrap/Card'
@@ -34,7 +35,12 @@ const SingleArticle = () => {
           <Card.Footer className='text-muted'>
             <Row>
               <Col sm={6}>Comments: {singleArticle.comment_count}</Col>
-              <Col sm={6}>Votes: {singleArticle.votes}</Col>
+              <Col sm={6}>
+                <Votes
+                  votes={singleArticle.votes}
+                  article_id={singleArticle.article_id}
+                ></Votes>
+              </Col>
             </Row>
           </Card.Footer>
         </Card.Body>
