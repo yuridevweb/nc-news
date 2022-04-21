@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { getCommentsByArticle } from '../utils/api'
 import PostComment from './PostComment'
-
+import DeleteComment from './DeleteComment'
 import Card from 'react-bootstrap/Card'
 
 const Comments = ({ article_id }) => {
@@ -34,6 +34,10 @@ const Comments = ({ article_id }) => {
                     </Card.Text>
                     <h2>{}</h2>
                     <p>{comment.body}</p>
+                    <DeleteComment
+                      comment_id={comment.comment_id}
+                      setComments={setComments}
+                    ></DeleteComment>
                   </Card.Body>
                 </Card>
               </li>

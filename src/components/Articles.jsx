@@ -35,7 +35,6 @@ const Articles = () => {
 
   const handleOrderBy = (e) => {
     let params = { sort_by: sort, order_by: e.target.value }
-
     setSearchParams(params)
     setOrder(params.order_by)
     setIsLoading(true)
