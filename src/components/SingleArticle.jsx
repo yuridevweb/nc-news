@@ -10,19 +10,24 @@ import Col from 'react-bootstrap/Col'
 import { Row } from 'react-bootstrap'
 
 const SingleArticle = () => {
+  const [error, setError] = useState(null)
   const { article_id } = useParams()
   const [isLoading, setIsLoading] = useState(true)
   const [singleArticle, setSingleArticle] = useState('')
   useEffect(() => {
     setIsLoading(true)
-    getArticlesById(article_id).then((articleFromApi) => {
-      setSingleArticle(articleFromApi)
-      setIsLoading(false)
-    })
+    getArticlesById(article_id)
+      .then((articleFromApi) => {
+        setSingleArticle(articleFromApi)
+        setIsLoading(false)
+      })
+      .catch((err) => {
+        setError("Sorry, article doesn't exist...")
+      })
   }, [article_id])
 
+  if (error) return <p>{error}</p>
   if (isLoading) return <Spinner animation='border' />
-
   return (
     <main>
       <Card className='text-center'>
