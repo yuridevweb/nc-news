@@ -24,24 +24,22 @@ const Articles = () => {
 
   const handleSortBy = (e) => {
     let params = { sort_by: e.target.value, order: order }
-    let sort_by = e.target.value
     setSearchParams(params)
-    setSort(sort_by)
+    setSort(params.sort_by)
     setIsLoading(true)
-    getArticles(topic, sort_by, order).then((articlesFromApi) => {
+    getArticles(topic, params.sort_by, order).then((articlesFromApi) => {
       setArticles(articlesFromApi)
       setIsLoading(false)
     })
   }
 
   const handleOrderBy = (e) => {
-    let params = { sort_by: sort, order: e.target.value }
-    let order_by = e.target.value
-    console.log(e.target.value)
+    let params = { sort_by: sort, order_by: e.target.value }
+
     setSearchParams(params)
-    setOrder(order_by)
+    setOrder(params.order_by)
     setIsLoading(true)
-    getArticles(topic, sort, order_by).then((articlesFromApi) => {
+    getArticles(topic, sort, params.order_by).then((articlesFromApi) => {
       setArticles(articlesFromApi)
       setIsLoading(false)
     })
