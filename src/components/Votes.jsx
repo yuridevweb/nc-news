@@ -22,7 +22,7 @@ const Votes = ({ votes, article_id }) => {
     })
   }
 
-  if (err) return <p>err</p>
+  if (err) return <p>{err}</p>
   return (
     <p>
       Votes: {votes + optimisticVotes}

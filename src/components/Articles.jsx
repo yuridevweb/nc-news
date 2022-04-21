@@ -2,14 +2,17 @@ import { useEffect, useState } from 'react'
 import { getArticles } from '../utils/api'
 import { Row } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 import Spinner from 'react-bootstrap/Spinner'
 
 const Articles = () => {
+  const [searchParams, setSearchParams] = useSearchParams()
   const [articles, setArticles] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const [order, setOrder] = useState('desc')
+  const [sort, setSort] = useState('created_at')
   const { topic } = useParams()
   useEffect(() => {
     setIsLoading(true)
@@ -19,10 +22,43 @@ const Articles = () => {
     })
   }, [topic])
 
+  const handleSortBy = (e) => {
+    let params = { sort_by: e.target.value, order: order }
+    setSearchParams(params)
+    setSort(params.sort_by)
+    setIsLoading(true)
+    getArticles(topic, params.sort_by, order).then((articlesFromApi) => {
+      setArticles(articlesFromApi)
+      setIsLoading(false)
+    })
+  }
+
+  const handleOrderBy = (e) => {
+    let params = { sort_by: sort, order_by: e.target.value }
+    setSearchParams(params)
+    setOrder(params.order_by)
+    setIsLoading(true)
+    getArticles(topic, sort, params.order_by).then((articlesFromApi) => {
+      setArticles(articlesFromApi)
+      setIsLoading(false)
+    })
+  }
+
   return (
     <main>
       {!topic && <h2>All topics</h2>}
       <h2 className='capitalize'>{topic}</h2>
+      <label htmlFor='sort-by-select'>Sort:</label>
+      <select id='sort-by-select' onChange={handleSortBy}>
+        <option value='created_at'>By Date</option>
+        <option value='votes'>By Votes</option>
+        <option value='comment_count'>By Comments</option>
+      </select>
+      <label htmlFor='order-by-select'>Order:</label>
+      <select id='order-by-select' onChange={handleOrderBy}>
+        <option value='desc'>Descending</option>
+        <option value='asc'>Ascending</option>
+      </select>
       {isLoading ? (
         <Spinner animation='border' />
       ) : (
