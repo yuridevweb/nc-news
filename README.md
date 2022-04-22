@@ -48,16 +48,16 @@ If successful, your browser should open http://localhost:3000
 - Client can be authorised from the list of existing users
 
 - Articles may be sorted by
-topic
-date
-vote count
-comment count
-order
+  - topic
+  - date
+  - vote count
+  - comment count
+  - order
 
 - Authorised users may 
-vote articles up or down
-publish comments on the article
-delete their own comments
+  - vote articles up or down
+  - publish comments on the article
+  - delete their own comments
 
 
 ### Built with:
