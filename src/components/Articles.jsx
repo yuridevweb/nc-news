@@ -46,8 +46,8 @@ const Articles = () => {
 
   return (
     <main>
-      {!topic && <h2>All topics</h2>}
-      <h2 className='capitalize'>{topic}</h2>
+      {!topic && <h2 className='pt-3'>All topics</h2>}
+      <h2 className='capitalize pt-3'>{topic}</h2>
       <div className='container'>
         <div className='row'>
           <div className='col-6'>
