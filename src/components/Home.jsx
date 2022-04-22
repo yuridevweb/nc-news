@@ -11,7 +11,6 @@ const Home = () => {
       setArticles(articlesFromApi)
     })
   }, [])
-  console.log(articles)
   return (
     <>
       <header>
