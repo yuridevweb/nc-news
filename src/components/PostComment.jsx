@@ -5,6 +5,7 @@ import { postNewComment } from '../utils/api'
 const PostComment = ({ article_id, setComments }) => {
   const { userOnline } = useContext(UserContext)
   const [newComment, setNewComment] = useState([])
+
   const handleSumbit = (e) => {
     e.preventDefault()
     postNewComment(article_id, newComment, userOnline).then((postedComment) => {

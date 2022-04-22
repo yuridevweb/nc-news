@@ -34,14 +34,14 @@ const Votes = ({ votes, article_id }) => {
       ) : (
         <>
           <button
-            className='mx-2 p-1'
+            className='mx-2 p-1 mb-2'
             onClick={incrementVotes}
             disabled={optimisticVotes !== 0}
           >
             Vote <FaThumbsUp />
           </button>
           <button
-            className='p-1'
+            className='p-1 mb-2'
             onClick={decrementVotes}
             disabled={optimisticVotes !== 0}
           >

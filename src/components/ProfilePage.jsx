@@ -6,7 +6,7 @@ const ProfilePage = () => {
   return (
     <main className='container-main'>
       <h1>Profile Page</h1>
-      <img src={ProfileDefault} alt='' />
+      <img className='img-fluid' src={ProfileDefault} alt='profile image' />
       <h2>{userOnline.username}</h2>
     </main>
   )

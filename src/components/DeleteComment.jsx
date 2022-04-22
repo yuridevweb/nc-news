@@ -5,6 +5,7 @@ const DeleteComment = ({ comment_id, setComments }) => {
   const [err, setErr] = useState(null)
   const deleteComment = () => {
     setErr(null)
+
     setComments((currComments) => {
       return currComments.filter((comment) => comment_id !== comment.comment_id)
     })
