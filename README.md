@@ -1,43 +1,72 @@
-# Getting Started with Create React App
+# NC-News API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to my front-end project at Northcoders. NC-News is aggregation application where you can vote on articles, post and delete comments. Built with React.js and Bootstrap.
 
-## Available Scripts
+You can find the hosted version:
+https://the-awesome-yuridevweb-site.netlify.app/
 
-In the project directory, you can run:
+## Getting Started & Installation
 
-### `npm start`
+### Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Check you have Node.js installed:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```js
+- npm --v
+```
 
-### `npm test`
+-To install Node, go to: https://nodejs.org/en/download/ v12.9
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Clone a copy of the repository on your machine using the command below:
+```js
+https://github.com/yuridevweb/nc-news.git
+```
+- Install the required dependencies:
+```js
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### Run the app
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To start the application, run this command in the CLI:
+```js
+npm run start
+```
+If successful, your browser should open http://localhost:3000
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Functionality
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Fully responsive and compatible with all devices and screen sizes
+
+- Client can be authorised from the list of existing users
+
+- Articles may be sorted by
+  - topic
+  - date
+  - vote count
+  - comment count
+  - order
+
+- Authorised users may 
+  - vote articles up or down
+  - publish comments on the article
+  - delete their own comments
+
+
+### Built with:
+
+* React - Open source library for building user interfaces based on UI components
+* Node.js - Back-end JavaScript runtime environment
+* Axios - A promise-based HTTP client (alternative to Fetch)
+* Bootstrap - Free and open-source CSS framework
+
 
 ## Learn More
 
