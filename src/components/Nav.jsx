@@ -1,9 +1,12 @@
 import { NavLink } from 'react-router-dom'
+import { useContext } from 'react'
+import { UserContext } from '../context/user'
 import { useState, useEffect } from 'react'
 import { getTopics } from '../utils/api'
 import { FaCode } from 'react-icons/fa'
 
 const Nav = () => {
+  const { userOnline } = useContext(UserContext)
   const [topics, setTopics] = useState([])
 
   const [isActive, setActive] = useState(true)
@@ -19,7 +22,7 @@ const Nav = () => {
   }
 
   return (
-    <nav className='navbar sticky-top navbar-expand-sm navbar-light bg-light'>
+    <nav className='navbar sticky-top navbar-expand-md navbar-light bg-light'>
       <div className='container-fluid'>
         <NavLink className='navbar-brand' activeclassname='active' to='/'>
           <FaCode /> NC-News <FaCode />
@@ -43,6 +46,32 @@ const Nav = () => {
           id='navbarNav'
         >
           <ul className='navbar-nav ms-auto'>
+            <NavLink
+              className='nav-link'
+              activeclassname='active'
+              to='/profile'
+            >
+              {userOnline.username}
+            </NavLink>
+            <li className='nav-item'>
+              {userOnline.username !== '' ? (
+                <NavLink
+                  className='nav-link'
+                  activeclassname='active'
+                  to='/logout'
+                >
+                  Logout
+                </NavLink>
+              ) : (
+                <NavLink
+                  className='nav-link'
+                  activeclassname='active'
+                  to='/login'
+                >
+                  Login
+                </NavLink>
+              )}
+            </li>
             <li className='nav-item'>
               <NavLink
                 className='nav-link'

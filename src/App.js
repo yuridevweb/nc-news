@@ -5,24 +5,23 @@ import Home from './components/Home'
 import Nav from './components/Nav'
 import Articles from './components/Articles'
 import SingleArticle from './components/SingleArticle'
-
-import Container from 'react-bootstrap/Container'
+import Login from './components/Login'
+import Logout from './components/Logout'
+import ProfilePage from './components/ProfilePage'
 function App() {
   return (
-    <Container>
-      <div className='App'>
-        <Nav />
-        <Routes>
-          <Route path='/' element={<Home />}></Route>
-          <Route path='/articles' element={<Articles />}></Route>
-          <Route path='/topics/:topic' element={<Articles />}></Route>
-          <Route
-            path='/articles/:article_id'
-            element={<SingleArticle />}
-          ></Route>
-        </Routes>
-      </div>
-    </Container>
+    <div className='App'>
+      <Nav />
+      <Routes>
+        <Route path='/' element={<Home />}></Route>
+        <Route path='/login' element={<Login />}></Route>
+        <Route path='/logout' element={<Logout />}></Route>
+        <Route path='/profile' element={<ProfilePage />}></Route>
+        <Route path='/articles' element={<Articles />}></Route>
+        <Route path='/topics/:topic' element={<Articles />}></Route>
+        <Route path='/articles/:article_id' element={<SingleArticle />}></Route>
+      </Routes>
+    </div>
   )
 }
 

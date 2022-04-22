@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { UserContext } from '../context/user'
 import { getCommentsByArticle } from '../utils/api'
 import PostComment from './PostComment'
 import DeleteComment from './DeleteComment'
 import Card from 'react-bootstrap/Card'
 
 const Comments = ({ article_id }) => {
+  const { userOnline } = useContext(UserContext)
   const [comments, setComments] = useState([])
   useEffect(() => {
     getCommentsByArticle(article_id).then((commentsFromApi) => {
@@ -33,10 +35,17 @@ const Comments = ({ article_id }) => {
                       {comment.created_at.slice(0, 10)}
                     </Card.Text>
                     {comment.body}
-                    <DeleteComment
-                      comment_id={comment.comment_id}
-                      setComments={setComments}
-                    ></DeleteComment>
+
+                    {userOnline.username !== comment.author ? (
+                      <Card.Footer>
+                        Cannot delete comment you not create.
+                      </Card.Footer>
+                    ) : (
+                      <DeleteComment
+                        comment_id={comment.comment_id}
+                        setComments={setComments}
+                      ></DeleteComment>
+                    )}
                   </Card.Body>
                 </Card>
               </li>

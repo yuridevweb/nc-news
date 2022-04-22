@@ -52,10 +52,10 @@ export const getCommentsByArticle = (article_id) => {
   })
 }
 
-export const postNewComment = (article_id, newComment) => {
+export const postNewComment = (article_id, newComment, userOnline) => {
   return newsApi
     .post(`/articles/${article_id}/comments`, {
-      username: 'happyamy2016',
+      username: userOnline.username,
       body: newComment,
     })
     .then(({ data }) => {
@@ -65,4 +65,10 @@ export const postNewComment = (article_id, newComment) => {
 
 export const deleteCommentById = (comment_id) => {
   return newsApi.delete(`/comments/${comment_id}`)
+}
+
+export const getUsers = () => {
+  return newsApi.get('/users').then(({ data }) => {
+    return data.users
+  })
 }
