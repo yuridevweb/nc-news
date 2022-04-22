@@ -14,7 +14,7 @@ const PostComment = ({ article_id, setComments }) => {
     })
   }
   return (
-    <form onSubmit={handleSumbit}>
+    <form onSubmit={handleSumbit} className='m-3'>
       <label htmlFor='comment-form'>Add a comment... </label>
       <input
         className='post-comment-form'
@@ -25,7 +25,7 @@ const PostComment = ({ article_id, setComments }) => {
         onChange={(e) => setNewComment(e.target.value)}
         required={true}
       ></input>
-      <button>Post</button>
+      <button className='px-4 p-1 m-3'>Post</button>
     </form>
   )
 }

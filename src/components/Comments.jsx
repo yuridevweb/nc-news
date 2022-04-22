@@ -26,14 +26,13 @@ const Comments = ({ article_id }) => {
           .map((comment) => {
             return (
               <li key={comment.comment_id}>
-                <Card className=' mb-2 mx-5 text-center'>
+                <Card className='mb-2 m-auto text-center'>
                   <Card.Body>
                     <Card.Text className='mb-1 text-muted'>
                       Posted by {comment.author} on{' '}
                       {comment.created_at.slice(0, 10)}
                     </Card.Text>
-                    <h2>{}</h2>
-                    <p>{comment.body}</p>
+                    {comment.body}
                     <DeleteComment
                       comment_id={comment.comment_id}
                       setComments={setComments}

@@ -13,6 +13,10 @@ const DeleteComment = ({ comment_id, setComments }) => {
     })
   }
   if (err) return <p>{err}</p>
-  return <button onClick={deleteComment}>Delete</button>
+  return (
+    <button className='d-block m-auto p-1' onClick={deleteComment}>
+      Delete
+    </button>
+  )
 }
 export default DeleteComment

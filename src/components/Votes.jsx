@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { incremenetArticleVotes, decremenetArticleVotes } from '../utils/api'
+import { FaThumbsUp, FaThumbsDown } from 'react-icons/fa'
 
 const Votes = ({ votes, article_id }) => {
   const [optimisticVotes, setOptimisticVotes] = useState(0)
@@ -26,8 +27,20 @@ const Votes = ({ votes, article_id }) => {
   return (
     <p>
       Votes: {votes + optimisticVotes}
-      <button onClick={incrementVotes}>Vote +</button>
-      <button onClick={decrementVotes}>Vote -</button>
+      <button
+        className='mx-2 p-1'
+        onClick={incrementVotes}
+        disabled={optimisticVotes !== 0}
+      >
+        Vote <FaThumbsUp />
+      </button>
+      <button
+        className='p-1'
+        onClick={decrementVotes}
+        disabled={optimisticVotes !== 0}
+      >
+        Vote <FaThumbsDown />
+      </button>
     </p>
   )
 }

@@ -2,12 +2,18 @@
   text-align: center;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 main {
-  background-color: rgb(231, 226, 226);
+  background-color: rgba(231, 226, 226, 0.342);
 }
 
 ul {
   list-style-type: none;
+  margin-right: 30px;
 }
 
 .articles-list {
@@ -18,6 +24,23 @@ ul {
   width: 100%;
   height: 100px;
 }
+
 .capitalize {
   text-transform: capitalize;
+}
+
+.active {
+  font-weight: 600;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+.article-header {
+  font-size: 2rem;
+}
+
+.article-title {
+  color: rgba(0, 0, 0, 0.884);
 }

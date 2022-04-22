@@ -36,12 +36,22 @@ const SingleArticle = () => {
             Posted by {singleArticle.author} on{' '}
             {singleArticle.created_at.slice(0, 10)}
           </Card.Text>
-          <Card.Header>{singleArticle.title}</Card.Header>
-          <Card.Text>{singleArticle.body}</Card.Text>
+          <Card.Header>
+            <h1 className='article-header'>{singleArticle.title}</h1>
+          </Card.Header>
+          <Card.Text className='lead'>{singleArticle.body}</Card.Text>
           <Card.Footer className='text-muted'>
-            <Row>
-              <Col sm={6}>Comments: {singleArticle.comment_count}</Col>
-              <Col sm={6}>
+            <Row className='mt-2'>
+              <Col
+                className='d-flex justify-content-center align-items-center mb-3'
+                sm={6}
+              >
+                Comments: {singleArticle.comment_count}
+              </Col>
+              <Col
+                className='d-flex justify-content-center align-items-center'
+                sm={6}
+              >
                 <Votes
                   votes={singleArticle.votes}
                   article_id={singleArticle.article_id}

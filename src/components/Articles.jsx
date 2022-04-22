@@ -48,17 +48,41 @@ const Articles = () => {
     <main>
       {!topic && <h2>All topics</h2>}
       <h2 className='capitalize'>{topic}</h2>
-      <label htmlFor='sort-by-select'>Sort:</label>
-      <select id='sort-by-select' onChange={handleSortBy}>
-        <option value='created_at'>By Date</option>
-        <option value='votes'>By Votes</option>
-        <option value='comment_count'>By Comments</option>
-      </select>
-      <label htmlFor='order-by-select'>Order:</label>
-      <select id='order-by-select' onChange={handleOrderBy}>
-        <option value='desc'>Descending</option>
-        <option value='asc'>Ascending</option>
-      </select>
+      <div className='container'>
+        <div className='row'>
+          <div className='col-6'>
+            <label htmlFor='sort-by-select'>Sort:</label>
+          </div>
+          <div className='col-6'>
+            <label htmlFor='order-by-select'>Order:</label>
+          </div>
+        </div>
+        <div className='row'>
+          <div className='col-6'>
+            <select
+              className='form-select'
+              id='sort-by-select'
+              onChange={handleSortBy}
+            >
+              <option value='created_at'>By Date</option>
+              <option value='votes'>By Votes</option>
+              <option value='comment_count'>By Comments</option>
+            </select>
+          </div>
+
+          <div className='col-6'>
+            <select
+              className='form-select'
+              id='order-by-select'
+              onChange={handleOrderBy}
+            >
+              <option value='desc'>Descending</option>
+              <option value='asc'>Ascending</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
       {isLoading ? (
         <Spinner animation='border' />
       ) : (
@@ -69,7 +93,9 @@ const Articles = () => {
                 <Link to={`/articles/${article.article_id}`}>
                   <Card className='text-center'>
                     <Card.Body>
-                      <Card.Title>{article.title}</Card.Title>
+                      <Card.Title className='article-title'>
+                        {article.title}
+                      </Card.Title>
                     </Card.Body>
                     <Card.Footer className='text-muted'>
                       <Row>
