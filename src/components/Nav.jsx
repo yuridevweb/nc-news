@@ -78,7 +78,7 @@ const Nav = () => {
                 activeclassname='active'
                 to='/articles'
               >
-                All Articles
+                All_Articles
               </NavLink>
             </li>
             {topics.map((topic) => {

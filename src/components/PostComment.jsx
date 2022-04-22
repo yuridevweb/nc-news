@@ -2,11 +2,12 @@ import { useState, useContext } from 'react'
 import { UserContext } from '../context/user'
 import { postNewComment } from '../utils/api'
 
-const PostComment = ({ article_id, setComments }) => {
+const PostComment = ({ article_id, setComments, setCommentsCount }) => {
   const { userOnline } = useContext(UserContext)
   const [newComment, setNewComment] = useState([])
   const handleSumbit = (e) => {
     e.preventDefault()
+    setCommentsCount((currentComments) => currentComments + 1)
     postNewComment(article_id, newComment, userOnline).then((postedComment) => {
       setComments((currComments) => {
         const newComments = [...currComments, postedComment]

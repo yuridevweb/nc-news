@@ -1,8 +1,8 @@
-import { useState, useEffect, useContext } from 'react'
+import { useEffect, useContext } from 'react'
 import { UserContext } from '../context/user'
 
 const Logout = () => {
-  const { userOnline, setUserOnline } = useContext(UserContext)
+  const { setUserOnline } = useContext(UserContext)
   useEffect(() => {
     setUserOnline({ username: '' })
   }, [])

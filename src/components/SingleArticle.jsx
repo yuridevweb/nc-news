@@ -10,6 +10,7 @@ import Col from 'react-bootstrap/Col'
 import { Row } from 'react-bootstrap'
 
 const SingleArticle = () => {
+  const [commentsCount, setCommentsCount] = useState(0)
   const [error, setError] = useState(null)
   const { article_id } = useParams()
   const [isLoading, setIsLoading] = useState(true)
@@ -46,7 +47,7 @@ const SingleArticle = () => {
                 className='d-flex justify-content-center align-items-center mb-3'
                 sm={6}
               >
-                Comments: {singleArticle.comment_count}
+                Comments: {singleArticle.comment_count + commentsCount}
               </Col>
               <Col
                 className='d-flex justify-content-center align-items-center'
@@ -61,7 +62,11 @@ const SingleArticle = () => {
           </Card.Footer>
         </Card.Body>
       </Card>
-      <Comments article_id={singleArticle.article_id}></Comments>
+      <Comments
+        article_id={singleArticle.article_id}
+        commentsCount={commentsCount}
+        setCommentsCount={setCommentsCount}
+      ></Comments>
     </main>
   )
 }
