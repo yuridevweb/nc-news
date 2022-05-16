@@ -3,7 +3,7 @@
 Welcome to my front-end project at Northcoders. NC-News is aggregation application where you can vote on articles, post and delete comments. Built with React.js and Bootstrap.
 
 You can find the hosted version:
-https://the-awesome-yuridevweb-site.netlify.app/
+https://nc-news-yuridevweb.netlify.app/
 
 ## Getting Started & Installation
 
